@@ -26,6 +26,16 @@ const pveDirectReplyEmbeded = new Discord.MessageEmbed()
     { name: "What can I do?", value: "Use the @PvE to trigger a message to other PvE minded individuals" }
   );
 
+const aboutDirectReplyEmbeded = new Discord.MessageEmbed()
+.setColor('#005dff')
+.setTitle('Welcome to RankBot!')
+.addFields(
+  { name: "Commands", value: "You can use the following commands: PvP, PvE, and Clear" },
+  { name: "PvP", value: "The PvP command will flag your account for PvP minded individuals to see" },
+  { name: "PvE", value: "The PvE command will flag your account for PvE minded individuals to see" },
+  { name: "Clear", value: "The Clear command will clear all current roles that you have with RankBot" },
+);
+
 const rankEmbeded = new Discord.MessageEmbed()
   .setColor('#00ffe8')
   .setDescription("Select an option to gain that rank")
@@ -103,6 +113,10 @@ client.on("message", function(message) {
     message.reply(pvpDirectReplyEmbeded);
     message.reply(pveDirectReplyEmbeded);
     message.reply(rankEmbeded);
+  }
+
+  if(command == "about"){
+    message.reply(aboutDirectReplyEmbeded);
   }
 });
 
